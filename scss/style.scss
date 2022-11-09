@@ -1,0 +1,216 @@
+@import "var";
+@import "mixin";
+@import "fonts";
+@import "settings";
+
+body {
+    color: $colorText;
+}
+
+.logo {
+}
+
+.main-button {
+    padding: 14px 48px;
+    border-radius: 50px;
+    background-color: $mainColor;
+    font-size: 20pt;
+    font-weight: 700;
+    line-height: 23pt;
+    letter-spacing: 1pt;
+    color: #fff;
+}
+
+.mobile-burger {
+    width: 50px;
+    height: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    &__line {
+        width: 50px;
+        height: 4px;
+        border-radius: 2px;
+        background-color: $mainColor;
+        transition: all 1s ease;
+    }
+    &__topline {
+        width: 32px;
+        background-color: pink;
+        transform: translate(0px, 13px) rotate(-45deg);
+    }
+    &__centerline {
+       opacity: 0;
+    }
+    &__bottomline {
+        width: 32px;
+        background-color: pink;
+        transform: translate(0px, -9px) rotate(45deg);
+    }   
+}
+
+.header {
+    background-color: #F0F0F0; 
+    &__wrapper {}
+    &__top {
+        @include flex (space-between);
+        padding: 11px 0px 10px 0px;
+        position: relative;
+    }
+    &__menu {
+        position: absolute;
+        top: 70px;
+        left: 0px;
+        right: 0px;
+        padding-bottom: 40px;
+        @include flex-col-all-start;
+        background-color: #F0F0F0;
+        z-index: 3;
+        opacity: 0;
+        transition: all 1s ease;
+        &--active {
+            opacity: 1;  
+        }
+        .menu {
+            margin: 40px 0px 20px 0px;
+            &__item {
+                font-size: 18pt;
+                font-weight: 500;
+                line-height: 21pt;
+                color: $colorTextHeaderMenu;
+                margin-bottom: 20px;
+                &:first-child {
+                    position: relative;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        width: 10px;
+                        height: 6px;
+                        right: -20px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background-image: url(../img/check_mark.png);
+                    }
+                }
+            }
+        }
+    }
+    &__bottom {
+        padding: 235px 0px 60px 0px;
+        position: relative;
+        z-index: 2;
+    }
+    &__img {
+        position: absolute;
+        top: 0px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+    &__title {
+        margin-bottom: 20px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 22pt;
+        line-height: 33pt;
+    }
+    &__text {
+        margin-bottom: 34px;
+        font-size: 20pt;
+        font-weight: 400;
+        line-height: 32pt;
+        letter-spacing: 1pt;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0 24px;
+    }
+    .header {
+        &__top {
+            padding: 15px 0px 14px 0px;
+        }
+        &__bottom {
+            padding: 50px 0px 100px 0px;
+        }
+        &__img {
+            top: 100px;
+            right: 0px;
+            transform: translateX(0px);
+        }
+        &__title {
+            width: 70%;
+            margin-bottom: 40px;
+            font-size: 36pt;
+            line-height: 57pt;
+        }
+        &__text {
+            width: 60%;
+            margin-bottom: 46px;
+        }
+    }
+}
+@media (min-width: 1024px) {
+    .header {
+        &__menu {
+            width: 100%;
+            position: relative;
+            top: 0px;
+            padding: 0px 0px 0px 5%;
+            @include flex(start);
+            opacity: 1;
+            .menu {
+                @include flex;
+                margin: 0px;
+                &__item {
+                    margin: 0px 30px 0px 0px;
+                    &:last-child {
+                        margin-right: 0px;
+                    }
+                }
+            }
+        }
+        &__button {
+            position: absolute;
+            top: 50%;
+            right: 0px;
+            transform: translateY(-50%);
+        } 
+    }
+}
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1280px;
+        padding: 0px;
+    }
+    .header {
+        &__menu {
+            padding: 0px 0px 0px 10%;
+        }
+        &__bottom {
+            padding: 90px 0px 130px 0px;
+        }
+        &__img {
+            top: 100px;
+            right: 0px;
+            transform: translateX(0px);
+        }
+        &__title {
+            width: 50%;
+            font-size: 44pt;
+            line-height: 72pt;
+        }
+        &__text {
+            width: 40%;
+        }
+    }
+}
+
+
+
+
+

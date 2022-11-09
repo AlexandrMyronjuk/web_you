@@ -1,0 +1,59 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0ch;
+    box-sizing: inherit;
+}
+
+body {
+    background-color: #fff;
+    font-family: "Raleway", sans-serif;
+    font-size: 100%;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.is-hidden {
+    display: none !important;
+}
+
+.for-mobile {
+    display: block;
+
+    @include mobile {
+        display: none !important;
+    }
+}
+
+.btn-reset {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.container {
+    min-width: 320px;
+    padding: 0 16px;
+    margin: 0 auto;
+}
+
